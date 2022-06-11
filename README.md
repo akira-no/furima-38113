@@ -11,7 +11,7 @@
 | first_name         | string | null: false               |
 | name_sei           | string | null: false               | 
 | name_mei           | string | null: false               |
-| birth_date         | string | null: false               |
+| birth_date         | date   | null: false               |
 
 ### Association
 
@@ -20,17 +20,17 @@
 
 ## items テーブル
 
-| Column              | Type       | Options                        |
-| ------------------- | ---------- | ------------------------------ |
-| product             | string     | null: false                    |
-| explanation         | text       | null: false                    |
-| condition           | text       | null: false                    |
-| category            | text       | null: false                    |
-| delivery_charge     | text       | null: false                    |
-| delivery_prefecture | text       | null: false                    |
-| delivery_day        | text       | null: false                    |
-| price               | string     | null: false                    |
-| user                | references | null: false, foreign_key: true |
+| Column             | Type       | Options                        |
+| ------------------ | ---------- | ------------------------------ |
+| product            | string     | null: false                    |
+| explanation        | text       | null: false                    |
+| condition_id       | integer    | null: false                    |
+| category_id        | integer    | null: false                    |
+| delivery_charge_id | integer    | null: false                    |
+| prefecture_id      | integer    | null: false                    |
+| delivery_day_id    | integer    | null: false                    |
+| price              | integer    | null: false                    |
+| user               | references | null: false, foreign_key: true |
 
   * imageはActiveStorageで実装するため含まない
 
@@ -59,10 +59,10 @@
 | post_code     | string     | null: false                    |
 | street_name   | string     | null: false                    |
 | house_number  | string     | null: false                    |
-| Prefectures   | string     | null: false                    |
-| building_name | string     | null: false                    |
+| Prefecture_id | integer    | null: false                    |
+| building_name | string     |                                |
 | phone_number  | string     | null: false                    |
-| buyerID       | references | null: false, foreign_key: true |
+| buyer         | references | null: false, foreign_key: true |
 
 ### Association
 
