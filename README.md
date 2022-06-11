@@ -59,7 +59,7 @@
 | post_code     | string     | null: false                    |
 | street_name   | string     | null: false                    |
 | house_number  | string     | null: false                    |
-| Prefecture_id | integer    | null: false                    |
+| prefecture_id | integer    | null: false                    |
 | building_name | string     |                                |
 | phone_number  | string     | null: false                    |
 | buyer         | references | null: false, foreign_key: true |
