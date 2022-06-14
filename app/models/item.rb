@@ -16,5 +16,6 @@ class Item < ApplicationRecord
   validates :delivery_charge_id,     presence: true, numericality: { other_than: 1 , message: "can't be blank"}
   validates :prefecture_id,          presence: true, numericality: { other_than: 1 , message: "can't be blank"}
   validates :delivery_day_id,        presence: true, numericality: { other_than: 1 , message: "can't be blank"}
-  validates :price,                  presence: true, format: { with: /0-9/ }, length: { minimum: 300, maximum: 9999999}
+  validates :price,                  presence: true, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999}, format: { with: /[0-9]/ }
 end
+
