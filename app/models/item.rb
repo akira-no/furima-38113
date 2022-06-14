@@ -8,8 +8,9 @@ class Item < ApplicationRecord
   belongs_to :delivery_charge
   belongs_to :prefecture
   belongs_to :delivery_day
-
-  validates :product,                presence: true, length: { maximum: 8 }
+  
+  validates :image,                  presence: true
+  validates :product,                presence: true, length: { maximum: 40 }
   validates :explanation,            presence: true, length: { maximum: 1000 }
   validates :condition_id,           presence: true, numericality: { other_than: 1 , message: "can't be blank"}
   validates :category_id,            presence: true, numericality: { other_than: 1 , message: "can't be blank"}
