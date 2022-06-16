@@ -50,9 +50,9 @@
 
 - belongs_to :user
 - belongs_to :item
-- has_one    :information
+- has_one    :addresses
 
-## informations テーブル
+## address テーブル
 
 | Column        | Type       | Options                        |
 | ------------- | ---------- | ------------------------------ |
@@ -66,5 +66,5 @@
 
 ### Association
 
-- belongs_to :byter
+- belongs_to :buyer
 
