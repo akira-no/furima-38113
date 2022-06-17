@@ -5,11 +5,11 @@ class BuyerAddress
   with_options presence: true do
     validates :user_id
     validates :item_id
-    # validates :post_code,　　　　　　3桁ハイフン4桁の半角文字列のみ保存可能なこと（良い例：123-4567　良くない例：1234567）。
+    validates :post_code,      format: { with: /\A\d[3]-\d{4}\z/}
     validates :city
     validates :house_number
     validates :prefecture_id,  numericality: { other_than: 1, message: "can't be blank" }
-    # validates :phone_number,　　　　10桁以上11桁以内の半角数値のみ保存可能なこと（良い例：09012345678　良くない例：090-1234-5678
+    validates :phone_number,   numericality: { only_integer: true, greater_than_or_equal_to: 10, less_than_or_equal_to: 11, message: "is invalid"}
     validates :buyer_id
   end
 

@@ -13,6 +13,10 @@ class BuyersController < ApplicationController
     @buyer_address = BuyerAddress.new(buyer_params)
     if @buyer_address.valid?
       @buyer_address.save
+      redirect_to root_path
+    else
+      @item = Item.find(params[:item_id])
+      render :index
     end
   end
 
