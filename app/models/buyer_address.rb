@@ -1,16 +1,15 @@
 class BuyerAddress
   include ActiveModel::Model
-  attr_accessor :user_id, :item_id, :post_code, :city, :house_number, :prefecture_id, :building_name, :phone_number, :buyer_id
+  attr_accessor :user_id, :item_id, :post_code, :city, :house_number, :prefecture_id, :building_name, :phone_number
 
   with_options presence: true do
     validates :user_id
     validates :item_id
-    validates :post_code,      format: { with: /\A\d[3]-\d{4}\z/}
+    validates :post_code,      format: { with: /\A\d{3}-\d{4}\z/ }
     validates :city
     validates :house_number
     validates :prefecture_id,  numericality: { other_than: 1, message: "can't be blank" }
-    validates :phone_number,   numericality: { only_integer: true, greater_than_or_equal_to: 10, less_than_or_equal_to: 11, message: "is invalid"}
-    validates :buyer_id
+    validates :phone_number,   format: { with: /\A\d{10,11}\z+/ }
   end
 
   def save
