@@ -50,14 +50,14 @@
 
 - belongs_to :user
 - belongs_to :item
-- has_one    :information
+- has_one    :address
 
-## informations テーブル
+## addresses テーブル
 
 | Column        | Type       | Options                        |
 | ------------- | ---------- | ------------------------------ |
 | post_code     | string     | null: false                    |
-| street_name   | string     | null: false                    |
+| city          | string     | null: false                    |
 | house_number  | string     | null: false                    |
 | prefecture_id | integer    | null: false                    |
 | building_name | string     |                                |
@@ -66,5 +66,5 @@
 
 ### Association
 
-- belongs_to :byter
+- belongs_to :buyer
 
