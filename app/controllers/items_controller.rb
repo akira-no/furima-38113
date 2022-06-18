@@ -21,6 +21,9 @@ class ItemsController < ApplicationController
   end
 
   def edit
+    if @item.buyer.present?
+      redirect_to root_path
+    end 
   end
 
   def update
@@ -32,6 +35,11 @@ class ItemsController < ApplicationController
   end
 
   def show
+    unless current_user.id == @item.user_id
+      if @item.buyer.present?
+        redirect_to root_path
+      end
+    end 
   end
 
   def destroy
