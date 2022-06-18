@@ -6,7 +6,7 @@ class User < ApplicationRecord
 
   has_many :items
   has_many :buyers
-  
+
   with_options presence: true do
     validates :password,      format: { with: /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i.freeze }
     validates :nickname
@@ -15,5 +15,5 @@ class User < ApplicationRecord
     validates :name_sei,      format: { with: /\A[ァ-ヶー－]+\z/ }
     validates :name_mei,      format: { with: /\A[ァ-ヶー－]+\z/ }
     validates :birth_date
-  end   
+  end
 end

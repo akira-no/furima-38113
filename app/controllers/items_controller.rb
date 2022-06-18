@@ -21,9 +21,7 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    if @item.buyer.present?
-      redirect_to root_path
-    end 
+    redirect_to root_path if @item.buyer.present?
   end
 
   def update
@@ -35,11 +33,7 @@ class ItemsController < ApplicationController
   end
 
   def show
-    unless current_user.id == @item.user_id
-      if @item.buyer.present?
-        redirect_to root_path
-      end
-    end 
+    redirect_to root_path if !(current_user.id == @item.user_id) && @item.buyer.present?
   end
 
   def destroy
@@ -52,10 +46,9 @@ class ItemsController < ApplicationController
   def identification
     if current_user.id == @item.user_id
     else
-       redirect_to root_path
+      redirect_to root_path
     end
   end
-
 
   def set_item
     @item = Item.find(params[:id])
