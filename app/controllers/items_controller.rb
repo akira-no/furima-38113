@@ -33,7 +33,7 @@ class ItemsController < ApplicationController
   end
 
   def show
-    redirect_to root_path if !(current_user.id == @item.user_id) && @item.buyer.present?
+    redirect_to root_path if (current_user.id == @item.user_id) && @item.buyer.present?
   end
 
   def destroy
